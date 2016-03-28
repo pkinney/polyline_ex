@@ -22,7 +22,7 @@ end
 
 ## Usage
 
-Full Documentation is available at https://pkinney.github.io/polyline_ex/Polyline.html
+**[Full Documentation](https://pkinney.github.io/polyline_ex/Polyline.html)**
 
 The encode functions accept a `precision` parameter that defines the
 number of significant digits to retain when encoding.  The same precision
