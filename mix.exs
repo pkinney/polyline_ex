@@ -3,7 +3,7 @@ defmodule Polyline.Mixfile do
 
   def project do
     [app: :polyline,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 1.2",
      description: description,
      package: package,
@@ -51,7 +51,8 @@ defmodule Polyline.Mixfile do
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["Powell Kinney"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/pkinney/polyline_ex"}
+      links: %{"GitHub" => "https://github.com/pkinney/polyline_ex",
+               "Docs" => "https://pkinney.github.io/polyline_ex/Polyline.html"}
     ]
   end
 end
