@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/pkinney/polyline_ex.svg?branch=master)](https://travis-ci.org/pkinney/polyline_ex)
 [![Hex.pm](https://img.shields.io/hexpm/v/polyline.svg)](https://hex.pm/packages/polyline)
 
-This is an Elixir implementation of simplified [polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm)
+This is an Elixir implementation of [polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm)
 encoding/decoding.  Functions are provided to convert a List of `{lon, lat}`
 tuples to a String polyline representation and back.
 
@@ -22,7 +22,7 @@ end
 
 ## Usage
 
-Full Documentation is available at [https://pkinney.github.io/polyline_ex/Polyline.html].
+Full Documentation is available at https://pkinney.github.io/polyline_ex/Polyline.html
 
 The encode functions accept a `precision` parameter that defines the
 number of significant digits to retain when encoding.  The same precision
