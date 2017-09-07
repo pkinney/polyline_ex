@@ -76,7 +76,7 @@ defmodule Polyline do
   def decode(str, _) when str == "", do: []
   def decode(str, precision) do
     factor = :math.pow(10, precision)
-    chars = String.to_char_list(str)
+    chars = String.to_charlist(str)
 
     terms = Enum.reduce_while chars, {[], chars}, fn
       _, {values, ''} -> {:halt, values}
