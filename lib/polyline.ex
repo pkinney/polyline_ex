@@ -37,23 +37,28 @@ defmodule Polyline do
       "_p~iF~ps|U_ulLnnqC_mqNvxq`@"
   """
   def encode(coordinates, precision \\ @default_precision) do
-    elem(do_encode(coordinates, :math.pow(10, precision)), 0)
+    factor = :math.pow(10, precision)
+    rounded_coordinates = Enum.map(
+      coordinates,
+      fn {x, y} -> {round(x * factor), round(y * factor)} end
+    )
+    elem(do_encode(rounded_coordinates), 0)
   end
 
-  defp do_encode([], _), do: {"", nil}
-  defp do_encode([{x0, y0} | coordinates], factor) do
+  defp do_encode([]), do: {"", nil}
+  defp do_encode([{x0, y0} | coordinates]) do
     Enum.reduce(
       coordinates,
-      encode_step({x0, y0}, {"", {0, 0}}, factor),
-      fn t, acc -> encode_step(t, acc, factor) end)
+      encode_step({x0, y0}, {"", {0, 0}}),
+      fn t, acc -> encode_step(t, acc) end)
   end
 
-  defp encode_step({x, y}, {acc, {x_prev, y_prev}}, factor) do
-     { acc <> encode_float(y - y_prev, factor) <> encode_float(x - x_prev, factor), {x, y}}
+  defp encode_step({x, y}, {acc, {x_prev, y_prev}}) do
+     { acc <> encode_int(y - y_prev) <> encode_int(x - x_prev), {x, y}}
   end
 
-  defp encode_float(x, factor) do
-    round(x * factor) <<< 1
+  defp encode_int(x) do
+    (x <<< 1)
     |> unsign
     |> collect_chars
     |> to_string
