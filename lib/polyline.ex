@@ -41,15 +41,15 @@ defmodule Polyline do
   end
 
   defp do_encode([], _), do: {"", nil}
+
   defp do_encode([{x0, y0} | coordinates], factor) do
-    Enum.reduce(
-      coordinates,
-      encode_step({x0, y0}, {"", {0, 0}}, factor),
-      fn t, acc -> encode_step(t, acc, factor) end)
+    Enum.reduce(coordinates, encode_step({x0, y0}, {"", {0, 0}}, factor), fn t, acc ->
+      encode_step(t, acc, factor)
+    end)
   end
 
   defp encode_step({x, y}, {acc, {x_prev, y_prev}}, factor) do
-     { acc <> encode_float(y - y_prev, factor) <> encode_float(x - x_prev, factor), {x, y}}
+    {acc <> encode_float(y - y_prev, factor) <> encode_float(x - x_prev, factor), {x, y}}
   end
 
   defp encode_float(x, factor) do
@@ -59,8 +59,8 @@ defmodule Polyline do
     |> to_string
   end
 
-  defp collect_chars(c) when c < 0x20, do: [ c + 63 ]
-  defp collect_chars(c), do: [(0x20 ||| (c &&& 0x1f)) + 63 | collect_chars(c >>> 5)]
+  defp collect_chars(c) when c < 0x20, do: [c + 63]
+  defp collect_chars(c), do: [(0x20 ||| (c &&& 0x1F)) + 63 | collect_chars(c >>> 5)]
 
   @doc ~S"""
   Decode a polyline String into a List of `{lon, lat}` tuples.
@@ -74,31 +74,36 @@ defmodule Polyline do
   """
   def decode(str, precision \\ @default_precision)
   def decode(str, _) when str == "", do: []
+
   def decode(str, precision) do
     factor = :math.pow(10, precision)
     chars = String.to_char_list(str)
 
-    terms = Enum.reduce_while chars, {[], chars}, fn
-      _, {values, ''} -> {:halt, values}
-      _, {values, remain} ->
-        {next_one, remain} = decode_next(remain, 0)
-        {:cont, {values ++ [sign(next_one) / factor], remain}}
-    end
+    terms =
+      Enum.reduce_while(chars, {[], chars}, fn
+        _, {values, ''} ->
+          {:halt, values}
 
-    Enum.reduce Enum.chunk(terms, 2), nil, fn
+        _, {values, remain} ->
+          {next_one, remain} = decode_next(remain, 0)
+          {:cont, {values ++ [sign(next_one) / factor], remain}}
+      end)
+
+    Enum.reduce(Enum.chunk(terms, 2), nil, fn
       [y, x], nil -> [{x, y}]
       [y, x], acc -> acc ++ [Vector.add({x, y}, List.last(acc))]
-    end
+    end)
   end
 
-  defp decode_next([ head | [] ], shift), do: { decode_char(head, shift), '' }
-  defp decode_next([ head | tail ], shift) when head < 95, do: { decode_char(head, shift), tail }
-  defp decode_next([ head | tail ], shift) do
-    { next, remain } = decode_next(tail, shift + 5)
-    { decode_char(head, shift) ||| next, remain}
+  defp decode_next([head | []], shift), do: {decode_char(head, shift), ''}
+  defp decode_next([head | tail], shift) when head < 95, do: {decode_char(head, shift), tail}
+
+  defp decode_next([head | tail], shift) do
+    {next, remain} = decode_next(tail, shift + 5)
+    {decode_char(head, shift) ||| next, remain}
   end
 
-  defp decode_char(char, shift), do: ((char - 63) &&& 0x1f ) <<< shift
+  defp decode_char(char, shift), do: (char - 63 &&& 0x1F) <<< shift
 
   defp unsign(x) when x < 0, do: -(x + 1)
   defp unsign(x), do: x
