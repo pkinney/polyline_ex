@@ -5,7 +5,7 @@ defmodule Polyline.Mixfile do
     [
       app: :polyline,
       version: "1.0.0",
-      elixir: "~> 1.2",
+      elixir: "~> 1.3",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
