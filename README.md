@@ -16,7 +16,7 @@ in order to be more interoperable with common formats such as GeoJSON and WKT.
 
 ```elixir
 defp deps do
-  [{:polyline, "~> 0.1.0"}]
+  [{:polyline, "~> 1.0"}]
 end
 ```
 

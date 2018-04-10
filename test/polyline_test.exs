@@ -1,7 +1,7 @@
 defmodule PolylineTest do
   use ExUnit.Case
   doctest Polyline
-    use Bitwise, only_operators: true
+  use Bitwise, only_operators: true
 
   @example [{-120.2, 38.5}, {-120.95, 40.7}, {-126.453, 43.252}]
   @example_slashes [{-82.55, 35.6}, {-82.55015, 35.59985}, {-82.55, 35.6}]
@@ -39,41 +39,41 @@ defmodule PolylineTest do
   end
 
   test "encode -> decode" do
-    assert (@example_slashes |> Polyline.encode |> Polyline.decode) == @example_slashes
+    assert @example_slashes |> Polyline.encode() |> Polyline.decode() == @example_slashes
   end
 
   test "decode -> encode" do
-    assert ("_chxEn`zvN\\\\]]" |> Polyline.decode |> Polyline.encode) == "_chxEn`zvN\\\\]]"
+    assert "_chxEn`zvN\\\\]]" |> Polyline.decode() |> Polyline.encode() == "_chxEn`zvN\\\\]]"
   end
 
   test "decode a long string to Geometry" do
     res =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
-      |> File.read!
-      |> String.strip
-      |> Polyline.decode
+      |> File.read!()
+      |> String.strip()
+      |> Polyline.decode()
 
     expected =
       Path.join([".", "test", "fixtures", "long.geo.json"])
-      |> File.read!
-      |> String.strip
+      |> File.read!()
+      |> String.strip()
 
-    assert %Geo.LineString{coordinates: res} |> Geo.JSON.encode |> Poison.encode! == expected
+    assert %Geo.LineString{coordinates: res} |> Geo.JSON.encode() |> Poison.encode!() == expected
   end
 
   test "encode a long string" do
     res =
       Path.join([".", "test", "fixtures", "long.geo.json"])
-      |> File.read!
-      |> Poison.decode!
-      |> Geo.JSON.decode
+      |> File.read!()
+      |> Poison.decode!()
+      |> Geo.JSON.decode()
       |> Map.get(:coordinates)
-      |> Polyline.encode
+      |> Polyline.encode()
 
     expected =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
-      |> File.read!
-      |> String.strip
+      |> File.read!()
+      |> String.strip()
 
     assert res == expected
   end
@@ -81,9 +81,9 @@ defmodule PolylineTest do
   test "identity with a long string to Geometry" do
     polyline =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
-      |> File.read!
-      |> String.strip
+      |> File.read!()
+      |> String.strip()
 
-    assert (polyline |> Polyline.decode |> Polyline.encode) == polyline
+    assert polyline |> Polyline.decode() |> Polyline.encode() == polyline
   end
 end
