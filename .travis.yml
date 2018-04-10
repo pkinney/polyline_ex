@@ -1,4 +1,12 @@
 language: elixir
 elixir:
-  - 1.2.0
-  - 1.2.2
+  - 1.4
+  - 1.5
+  - 1.6
+otp_release:
+  - 19.3
+  - 20.1
+script: 
+  - elixir -e "Version.match?(System.version, ~s(~> 1.6)) || System.halt(0)" -S mix format --check-formatted
+  - mix test
+  - mix dialyzer --halt-exit-status
