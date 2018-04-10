@@ -4,7 +4,7 @@ defmodule Polyline.Mixfile do
   def project do
     [
       app: :polyline,
-      version: "0.1.2",
+      version: "1.0.0",
       elixir: "~> 1.2",
       description: description(),
       package: package(),
