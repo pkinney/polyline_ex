@@ -61,6 +61,18 @@ defmodule PolylineTest do
     assert %Geo.LineString{coordinates: res} |> Geo.JSON.encode() |> Poison.encode!() == expected
   end
 
+  test "encode an over-precise string same way as reference implementation" do
+    # reference value is generated using following JS google maps API code:
+    # raw_coords = [[-87.650934, 41.875332], [-87.650938, 41.875336], [-87.650941, 41.87534]]
+    # path = raw_coords.map(function(coords){ return new google.maps.LatLng(coords[1], coords[0]) })
+    # google.maps.geometry.encoding.encodePath(path)
+    assert Polyline.encode([
+             {-87.650933, 41.875332},
+             {-87.650936, 41.875336},
+             {-87.650942, 41.875340}
+           ]) == "ywq~Fhi~uOA@??"
+  end
+
   test "encode a long string" do
     res =
       Path.join([".", "test", "fixtures", "long.geo.json"])
