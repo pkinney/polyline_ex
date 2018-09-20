@@ -50,15 +50,15 @@ defmodule PolylineTest do
     res =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
       |> File.read!()
-      |> String.strip()
+      |> String.trim()
       |> Polyline.decode()
 
     expected =
       Path.join([".", "test", "fixtures", "long.geo.json"])
       |> File.read!()
-      |> String.strip()
+      |> String.trim()
 
-    assert %Geo.LineString{coordinates: res} |> Geo.JSON.encode() |> Poison.encode!() == expected
+    assert %Geo.LineString{coordinates: res} |> Geo.JSON.encode!() |> Poison.encode!() == expected
   end
 
   test "encode an over-precise string same way as reference implementation" do
@@ -78,14 +78,14 @@ defmodule PolylineTest do
       Path.join([".", "test", "fixtures", "long.geo.json"])
       |> File.read!()
       |> Poison.decode!()
-      |> Geo.JSON.decode()
+      |> Geo.JSON.decode!()
       |> Map.get(:coordinates)
       |> Polyline.encode()
 
     expected =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
       |> File.read!()
-      |> String.strip()
+      |> String.trim()
 
     assert res == expected
   end
@@ -94,7 +94,7 @@ defmodule PolylineTest do
     polyline =
       Path.join([".", "test", "fixtures", "long.polyline.txt"])
       |> File.read!()
-      |> String.strip()
+      |> String.trim()
 
     assert polyline |> Polyline.decode() |> Polyline.encode() == polyline
   end
