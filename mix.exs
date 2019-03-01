@@ -33,11 +33,11 @@ defmodule Polyline.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:vector, "~> 0.1"},
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.11", only: :dev},
-      {:geo, "~> 1.0", only: :test},
-      {:poison, "~> 2.0", only: :test},
+      {:vector, "~> 1.0"},
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.19", only: :dev},
+      {:geo, "~> 3.0", only: :test},
+      {:poison, "~> 4.0", only: :test},
       {:excoveralls, "~> 0.4", only: :test},
       {:dialyxir, "~> 0.4", only: [:dev], runtime: false}
     ]

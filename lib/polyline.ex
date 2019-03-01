@@ -31,7 +31,7 @@ defmodule Polyline do
       "_izlhA~rlgdF_{geC~ywl@_kwzCn`{nI"
 
       iex> "LINESTRING(-120.2 38.5, -120.95 40.7, -126.453 43.252)"
-      ...> |> Geo.WKT.decode
+      ...> |> Geo.WKT.decode!
       ...> |> Map.get(:coordinates)
       ...> |> Polyline.encode
       "_p~iF~ps|U_ulLnnqC_mqNvxq`@"
@@ -96,7 +96,7 @@ defmodule Polyline do
           {:cont, {values ++ [sign(next_one) / factor], remain}}
       end)
 
-    Enum.reduce(Enum.chunk(terms, 2), nil, fn
+    Enum.reduce(Enum.chunk_every(terms, 2), nil, fn
       [y, x], nil -> [{x, y}]
       [y, x], acc -> acc ++ [Vector.add({x, y}, List.last(acc))]
     end)
