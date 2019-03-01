@@ -1,1 +1,0 @@
-sidebarNodes={"exceptions":[],"extras":[{"id":"api-reference","title":"API Reference","headers":[]}],"modules":[{"id":"Polyline","title":"Polyline","functions":[{"id":"decode/2","anchor":"decode/2"},{"id":"encode/2","anchor":"encode/2"}]}],"protocols":[]}
