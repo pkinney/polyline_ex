@@ -96,7 +96,7 @@ defmodule Polyline do
           {:cont, {values ++ [sign(next_one) / factor], remain}}
       end)
 
-    Enum.reduce(Enum.chunk_every(terms, 2), nil, fn
+    Enum.reduce(Enum.chunk_every(terms, 2, 2, :discard), nil, fn
       [y, x], nil -> [{x, y}]
       [y, x], acc -> acc ++ [Vector.add({x, y}, List.last(acc))]
     end)
