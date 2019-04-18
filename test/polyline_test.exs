@@ -98,4 +98,11 @@ defmodule PolylineTest do
 
     assert polyline |> Polyline.decode() |> Polyline.encode() == polyline
   end
+
+  test "discard leftover elements when decoding" do
+    string =
+      "i|~wAeo{aVw@i@SI]EkN^c@@KfXGNULcCo@}HgByEkAcFcAsCk@oAYeAYgZuGiBu@wCi@iGo@eKBiHx@aGzAeMpEgJ`Dy@wC~@kK|D_A`@yLlEkAXuJhDuAj@yAp@mKzD{h@bRu@NcIpCmIbDmGxBk@RkD`AgBj@wAf@a@mBe@sCiCiNkCcMgCkMeBZWE}@BmKsAkCWwE]{BGyC?iBD}BJwCVgDb@mByNu@wSGaC{DL"
+
+    assert string |> Polyline.decode |> Enum.count == 64
+  end
 end
