@@ -86,10 +86,10 @@ defmodule Polyline do
     factor = :math.pow(10, precision)
     chars = String.to_charlist(str)
 
-    terms =
+    {terms, _} =
       Enum.reduce_while(chars, {[], chars}, fn
         _, {values, ''} ->
-          {:halt, values}
+          {:halt, {values, ''}}
 
         _, {values, remain} ->
           {next_one, remain} = decode_next(remain, 0)
