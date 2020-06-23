@@ -39,7 +39,8 @@ defmodule Polyline.Mixfile do
       {:geo, "~> 3.0", only: :test},
       {:poison, "~> 4.0", only: :test},
       {:excoveralls, "~> 0.4", only: :test},
-      {:dialyxir, "~> 0.4", only: [:dev], runtime: false}
+      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
+      {:stream_data, "~> 0.5", only: :test}
     ]
   end
 
