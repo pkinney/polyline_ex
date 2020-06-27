@@ -1,5 +1,6 @@
 defmodule PolylineTest do
   use ExUnit.Case
+  use ExUnitProperties
   doctest Polyline
   use Bitwise, only_operators: true
 
@@ -99,10 +100,37 @@ defmodule PolylineTest do
     assert polyline |> Polyline.decode() |> Polyline.encode() == polyline
   end
 
+  test "identity with 0,0 point" do
+    polyline = "??"
+
+    assert polyline |> Polyline.decode() |> Polyline.encode() == polyline
+  end
+
   test "discard leftover elements when decoding" do
     string =
       "i|~wAeo{aVw@i@SI]EkN^c@@KfXGNULcCo@}HgByEkAcFcAsCk@oAYeAYgZuGiBu@wCi@iGo@eKBiHx@aGzAeMpEgJ`Dy@wC~@kK|D_A`@yLlEkAXuJhDuAj@yAp@mKzD{h@bRu@NcIpCmIbDmGxBk@RkD`AgBj@wAf@a@mBe@sCiCiNkCcMgCkMeBZWE}@BmKsAkCWwE]{BGyC?iBD}BJwCVgDb@mByNu@wSGaC{DL"
 
     assert string |> Polyline.decode() |> Enum.count() == 64
+  end
+
+  property "encoding/decoding returns approximately the same points" do
+    check all(points <- point_list()) do
+      encoded = Polyline.encode(points)
+      decoded = Polyline.decode(encoded)
+      assert length(decoded) == length(points)
+
+      for {expected, actual} <- Enum.zip(points, decoded) do
+        assert_approx_equal_points(expected, actual)
+      end
+    end
+  end
+
+  defp coord, do: float(min: -180.0, max: 180.0)
+  defp point, do: tuple({coord(), coord()})
+  defp point_list, do: nonempty(list_of(point(), max_length: 10))
+
+  defp assert_approx_equal_points({expected_lon, expected_lat}, {actual_lon, actual_lat}) do
+    assert_in_delta expected_lon, actual_lon, 0.00001
+    assert_in_delta expected_lat, actual_lat, 0.00001
   end
 end
