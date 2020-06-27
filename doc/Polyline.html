@@ -5,15 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.1">
-    <title>Polyline – polyline v1.2.1</title>
+    <title>Polyline – polyline v1.2.2</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
       <link rel="canonical" href="https://hexdocs.pm/polyline/Polyline.html" />
     <script src="dist/sidebar_items-8fb685daf6.js"></script>
-    
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
-    <div class="main">
+<div class="main">
 <button class="sidebar-button sidebar-toggle">
   <span class="icon-menu" aria-hidden="true"></span>
   <span class="sr-only">Toggle Sidebar</span>
@@ -29,7 +28,7 @@
       <h1 class="sidebar-projectName">
 polyline      </h1>
       <h2 class="sidebar-projectVersion">
-        v1.2.1
+        v1.2.2
       </h2>
     </div>
   </a>
@@ -56,10 +55,9 @@ polyline      </h1>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-
       <h1>
-        <small class="visible-xs">polyline v1.2.1</small>
-Polyline              </h1>
+        <small class="visible-xs">polyline v1.2.2</small>
+Polyline      </h1>
 
 
         <section id="moduledoc">
@@ -73,11 +71,11 @@ The default is <code class="inline">5</code>, which correlates to approximately 
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="5401759727-1">(</span><span class="p" data-group-id="5401759727-2">[</span><span class="p" data-group-id="5401759727-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="5401759727-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5401759727-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="5401759727-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5401759727-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="5401759727-5">}</span><span class="p" data-group-id="5401759727-2">]</span><span class="p" data-group-id="5401759727-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="2336314958-1">(</span><span class="p" data-group-id="2336314958-2">[</span><span class="p" data-group-id="2336314958-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="2336314958-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2336314958-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="2336314958-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2336314958-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="2336314958-5">}</span><span class="p" data-group-id="2336314958-2">]</span><span class="p" data-group-id="2336314958-1">)</span><span class="w">
 </span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="5401759727-6">(</span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="p" data-group-id="5401759727-6">)</span><span class="w">
-</span><span class="p" data-group-id="5401759727-7">[</span><span class="p" data-group-id="5401759727-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="5401759727-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5401759727-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="5401759727-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5401759727-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="5401759727-10">}</span><span class="p" data-group-id="5401759727-7">]</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="2336314958-6">(</span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="p" data-group-id="2336314958-6">)</span><span class="w">
+</span><span class="p" data-group-id="2336314958-7">[</span><span class="p" data-group-id="2336314958-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="2336314958-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2336314958-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="2336314958-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2336314958-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="2336314958-10">}</span><span class="p" data-group-id="2336314958-7">]</span></code></pre>
         </section>
 
         <section id="summary" class="details-list">
@@ -88,7 +86,6 @@ The default is <code class="inline">5</code>, which correlates to approximately 
             </a>
             Summary
           </h1>
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
@@ -109,7 +106,6 @@ The default is <code class="inline">5</code>, which correlates to approximately 
 </div>
 </div>
   </div>
-          
         </section>
 
 
@@ -123,7 +119,6 @@ The default is <code class="inline">5</code>, which correlates to approximately 
             Functions
           </h1>
 <div class="detail" id="decode/2">
-  
     <span id="decode/1"></span>
   <div class="detail-header">
     <a href="#decode/2" class="detail-link" title="Link to this function">
@@ -131,7 +126,7 @@ The default is <code class="inline">5</code>, which correlates to approximately 
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">decode(str, precision \\ 5)</span>
-          </div>
+  </div>
   <section class="docstring">
 <p>Decode a polyline String into a List of <code class="inline">{lon, lat}</code> tuples.</p>
 <h2 id="decode/2-examples" class="section-heading">
@@ -139,15 +134,14 @@ The default is <code class="inline">5</code>, which correlates to approximately 
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="6753288855-1">(</span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="p" data-group-id="6753288855-1">)</span><span class="w">
-</span><span class="p" data-group-id="6753288855-2">[</span><span class="p" data-group-id="6753288855-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="6753288855-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6753288855-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="6753288855-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6753288855-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="6753288855-5">}</span><span class="p" data-group-id="6753288855-2">]</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="1978338882-1">(</span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="p" data-group-id="1978338882-1">)</span><span class="w">
+</span><span class="p" data-group-id="1978338882-2">[</span><span class="p" data-group-id="1978338882-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="1978338882-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1978338882-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="1978338882-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1978338882-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="1978338882-5">}</span><span class="p" data-group-id="1978338882-2">]</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="6753288855-6">(</span><span class="s">&quot;_izlhA~rlgdF_{geC~ywl@_kwzCn`{nI&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="6753288855-6">)</span><span class="w">
-</span><span class="p" data-group-id="6753288855-7">[</span><span class="p" data-group-id="6753288855-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="6753288855-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6753288855-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="6753288855-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6753288855-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="6753288855-10">}</span><span class="p" data-group-id="6753288855-7">]</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">decode</span><span class="p" data-group-id="1978338882-6">(</span><span class="s">&quot;_izlhA~rlgdF_{geC~ywl@_kwzCn`{nI&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="1978338882-6">)</span><span class="w">
+</span><span class="p" data-group-id="1978338882-7">[</span><span class="p" data-group-id="1978338882-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="1978338882-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1978338882-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="1978338882-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1978338882-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="1978338882-10">}</span><span class="p" data-group-id="1978338882-7">]</span></code></pre>
   </section>
 </div>
 <div class="detail" id="encode/2">
-  
     <span id="encode/1"></span>
   <div class="detail-header">
     <a href="#encode/2" class="detail-link" title="Link to this function">
@@ -155,7 +149,7 @@ The default is <code class="inline">5</code>, which correlates to approximately 
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">encode(coordinates, precision \\ 5)</span>
-          </div>
+  </div>
   <section class="docstring">
 <p>Encode a List of coordinate tuples into a Polyline String. Also works with
 <code class="inline">Geo.LineString</code> structs (see https://hex.pm/packages/geo).</p>
@@ -164,22 +158,22 @@ The default is <code class="inline">5</code>, which correlates to approximately 
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="4548433620-1">(</span><span class="p" data-group-id="4548433620-2">[</span><span class="p" data-group-id="4548433620-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="4548433620-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4548433620-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="4548433620-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4548433620-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="4548433620-5">}</span><span class="p" data-group-id="4548433620-2">]</span><span class="p" data-group-id="4548433620-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="4005677713-1">(</span><span class="p" data-group-id="4005677713-2">[</span><span class="p" data-group-id="4005677713-3">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="4005677713-3">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4005677713-4">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="4005677713-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4005677713-5">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="4005677713-5">}</span><span class="p" data-group-id="4005677713-2">]</span><span class="p" data-group-id="4005677713-1">)</span><span class="w">
 </span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="4548433620-6">(</span><span class="p" data-group-id="4548433620-7">[</span><span class="p" data-group-id="4548433620-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="4548433620-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4548433620-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="4548433620-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4548433620-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="4548433620-10">}</span><span class="p" data-group-id="4548433620-7">]</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="4548433620-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="p" data-group-id="4005677713-6">(</span><span class="p" data-group-id="4005677713-7">[</span><span class="p" data-group-id="4005677713-8">{</span><span class="o">-</span><span class="mf">120.2</span><span class="p">,</span><span class="w"> </span><span class="mf">38.5</span><span class="p" data-group-id="4005677713-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4005677713-9">{</span><span class="o">-</span><span class="mf">120.95</span><span class="p">,</span><span class="w"> </span><span class="mf">40.7</span><span class="p" data-group-id="4005677713-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4005677713-10">{</span><span class="o">-</span><span class="mf">126.453</span><span class="p">,</span><span class="w"> </span><span class="mf">43.252</span><span class="p" data-group-id="4005677713-10">}</span><span class="p" data-group-id="4005677713-7">]</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="4005677713-6">)</span><span class="w">
 </span><span class="s">&quot;_izlhA~rlgdF_{geC~ywl@_kwzCn`{nI&quot;</span><span class="w">
 
 </span><span class="gp unselectable">iex&gt; </span><span class="s">&quot;LINESTRING(-120.2 38.5, -120.95 40.7, -126.453 43.252)&quot;</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Geo.WKT</span><span class="o">.</span><span class="n">decode!</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Map</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4548433620-11">(</span><span class="ss">:coordinates</span><span class="p" data-group-id="4548433620-11">)</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Map</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4005677713-11">(</span><span class="ss">:coordinates</span><span class="p" data-group-id="4005677713-11">)</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Polyline</span><span class="o">.</span><span class="n">encode</span><span class="w">
 </span><span class="s">&quot;_p~iF~ps|U_ulLnnqC_mqNvxq`@&quot;</span></code></pre>
   </section>
 </div>
         </section>
 
-          <footer class="footer">
+      <footer class="footer">
         <p>
           <span class="line">
             Built using
@@ -196,7 +190,5 @@ The default is <code class="inline">5</code>, which correlates to approximately 
 </section>
 </div>
   <script src="dist/app-a0c90688fa.js"></script>
-  
   </body>
 </html>
-
