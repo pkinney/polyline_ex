@@ -93,13 +93,16 @@ defmodule Polyline do
 
         _, {values, remain} ->
           {next_one, remain} = decode_next(remain, 0)
-          {:cont, {values ++ [sign(next_one) / factor], remain}}
+          {:cont, {[sign(next_one) / factor | values], remain}}
       end)
 
-    Enum.reduce(Enum.chunk_every(terms, 2, 2, :discard), nil, fn
-      [y, x], nil -> [{x, y}]
-      [y, x], acc -> acc ++ [Vector.add({x, y}, List.last(acc))]
-    end)
+    result =
+      Enum.reduce(Enum.chunk_every(Enum.reverse(terms), 2, 2, :discard), nil, fn
+        [y, x], nil -> [{x, y}]
+        [y, x], acc -> [Vector.add({x, y}, List.first(acc)) | acc]
+      end)
+
+    Enum.reverse(result)
   end
 
   defp decode_next([head | []], shift), do: {decode_char(head, shift), ''}
