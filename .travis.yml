@@ -2,9 +2,13 @@ language: elixir
 elixir:
   - 1.7
   - 1.8
+  - 1.9
+  - 1.10
 otp_release:
   - 20.3
   - 21.0
+  - 22.0
+  - 23.0
 script: 
   - mix format --check-formatted
   - mix test
