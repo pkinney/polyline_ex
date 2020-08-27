@@ -36,10 +36,11 @@ defmodule Polyline.Mixfile do
       {:vector, "~> 1.0"},
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.19", only: :dev},
-      {:geo, "~> 3.0", only: :test},
-      {:poison, "~> 4.0", only: :test},
+      {:geo, "~> 3.0", only: [:dev, :test]},
+      {:poison, "~> 4.0", only: [:dev, :test]},
       {:excoveralls, "~> 0.4", only: :test},
       {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
+      {:benchfella, "~> 0.3", only: :dev},
       {:stream_data, "~> 0.5", only: :test}
     ]
   end
