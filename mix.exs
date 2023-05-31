@@ -5,13 +5,14 @@ defmodule Polyline.Mixfile do
     [
       app: :polyline,
       version: "1.3.0",
-      elixir: "~> 1.3",
+      elixir: "~> 1.12",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -37,9 +38,10 @@ defmodule Polyline.Mixfile do
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.19", only: :dev},
       {:geo, "~> 3.0", only: [:dev, :test]},
-      {:poison, "~> 4.0", only: [:dev, :test]},
+      {:poison, "~> 5.0", only: [:dev, :test]},
       {:excoveralls, "~> 0.4", only: :test},
-      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
+      {:credo, "~> 1.5", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:benchfella, "~> 0.3", only: :dev},
       {:stream_data, "~> 0.5", only: :test}
     ]
@@ -60,6 +62,18 @@ defmodule Polyline.Mixfile do
         "GitHub" => "https://github.com/pkinney/polyline_ex",
         "Docs" => "https://pkinney.github.io/polyline_ex/Polyline.html"
       }
+    ]
+  end
+
+  defp aliases do
+    [
+      validate: [
+        "clean",
+        "compile --warnings-as-error",
+        "format --check-formatted",
+        "credo",
+        "dialyzer"
+      ]
     ]
   end
 end

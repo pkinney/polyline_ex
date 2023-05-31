@@ -2,7 +2,6 @@ defmodule PolylineTest do
   use ExUnit.Case
   use ExUnitProperties
   doctest Polyline
-  use Bitwise, only_operators: true
 
   @example [{-120.2, 38.5}, {-120.95, 40.7}, {-126.453, 43.252}]
   @example_slashes [{-82.55, 35.6}, {-82.55015, 35.59985}, {-82.55, 35.6}]

@@ -1,6 +1,6 @@
 # Polyline Encode/Decode for Elixir
 
-[![Build Status](https://travis-ci.org/pkinney/polyline_ex.svg?branch=master)](https://travis-ci.org/pkinney/polyline_ex)
+![Build Status](https://github.com/pkinney/polyline_ex/actions/workflows/ci.yaml/badge.svg)
 [![Hex.pm](https://img.shields.io/hexpm/v/polyline.svg)](https://hex.pm/packages/polyline)
 
 This is an Elixir implementation of [polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm)

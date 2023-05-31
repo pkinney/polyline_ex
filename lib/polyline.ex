@@ -17,7 +17,7 @@ defmodule Polyline do
 
   @default_precision 5
 
-  use Bitwise, only_operators: true
+  import Bitwise
 
   @doc ~S"""
   Encode a List of coordinate tuples into a Polyline String. Also works with
