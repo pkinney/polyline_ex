@@ -12,7 +12,7 @@ jobs:
       - name: Install OTP and Elixir
         uses: erlef/setup-beam@v1
         with:
-          otp-version: 27.0
+          otp-version: 27.2
           elixir-version: 1.18.1
 
       - name: Install dependencies
