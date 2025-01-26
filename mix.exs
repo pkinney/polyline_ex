@@ -11,6 +11,7 @@ defmodule Polyline.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
+      dialyzer: [plt_add_apps: [:poison, :mix]],
       deps: deps(),
       aliases: aliases()
     ]
