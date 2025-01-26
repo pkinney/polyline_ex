@@ -50,6 +50,7 @@ defmodule Polyline.Mixfile do
       {:excoveralls, "~> 0.4", only: :test},
       {:benchfella, "~> 0.3", only: :dev},
       {:stream_data, "~> 1.1", only: :test},
+      {:styler, "~> 1.3", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.6", only: [:dev], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false}
     ]

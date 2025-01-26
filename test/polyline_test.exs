@@ -1,6 +1,7 @@
 defmodule PolylineTest do
   use ExUnit.Case
   use ExUnitProperties
+
   doctest Polyline
 
   @example [{-120.2, 38.5}, {-120.95, 40.7}, {-126.453, 43.252}]
@@ -48,13 +49,15 @@ defmodule PolylineTest do
 
   test "decode a long string to Geometry" do
     res =
-      Path.join([".", "test", "fixtures", "long.polyline.txt"])
+      [".", "test", "fixtures", "long.polyline.txt"]
+      |> Path.join()
       |> File.read!()
       |> String.trim()
       |> Polyline.decode()
 
     expected =
-      Path.join([".", "test", "fixtures", "long.geo.json"])
+      [".", "test", "fixtures", "long.geo.json"]
+      |> Path.join()
       |> File.read!()
       |> String.trim()
 
@@ -75,7 +78,8 @@ defmodule PolylineTest do
 
   test "encode a long string" do
     res =
-      Path.join([".", "test", "fixtures", "long.geo.json"])
+      [".", "test", "fixtures", "long.geo.json"]
+      |> Path.join()
       |> File.read!()
       |> Poison.decode!()
       |> Geo.JSON.decode!()
@@ -83,7 +87,8 @@ defmodule PolylineTest do
       |> Polyline.encode()
 
     expected =
-      Path.join([".", "test", "fixtures", "long.polyline.txt"])
+      [".", "test", "fixtures", "long.polyline.txt"]
+      |> Path.join()
       |> File.read!()
       |> String.trim()
 
@@ -92,7 +97,8 @@ defmodule PolylineTest do
 
   test "identity with a long string to Geometry" do
     polyline =
-      Path.join([".", "test", "fixtures", "long.polyline.txt"])
+      [".", "test", "fixtures", "long.polyline.txt"]
+      |> Path.join()
       |> File.read!()
       |> String.trim()
 

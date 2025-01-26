@@ -15,9 +15,9 @@ defmodule Polyline do
       [{-120.2, 38.5}, {-120.95, 40.7}, {-126.453, 43.252}]
   """
 
-  @default_precision 5
-
   import Bitwise
+
+  @default_precision 5
 
   @doc ~S"""
   Encode a List of coordinate tuples into a Polyline String. Also works with
@@ -61,9 +61,9 @@ defmodule Polyline do
 
   defp encode_int(x) do
     (x <<< 1)
-    |> unsign
-    |> collect_chars
-    |> to_string
+    |> unsign()
+    |> collect_chars()
+    |> to_string()
   end
 
   defp collect_chars(c) when c < 0x20, do: [c + 63]
