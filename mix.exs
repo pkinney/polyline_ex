@@ -20,7 +20,7 @@ defmodule Polyline.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :vector]]
+    [applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -34,7 +34,6 @@ defmodule Polyline.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:vector, "~> 1.0"},
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.19", only: :dev},
       {:geo, "~> 3.0", only: [:dev, :test]},
