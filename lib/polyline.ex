@@ -86,24 +86,26 @@ defmodule Polyline do
     factor = :math.pow(10, precision)
     chars = String.to_charlist(str)
 
-    {terms, _} =
-      Enum.reduce_while(chars, {[], chars}, fn
-        _, {values, ''} ->
-          {:halt, {values, ''}}
+    {terms, _, _} =
+      Enum.reduce(chars, {[{0.0, 0.0}], nil, chars}, fn
+        _, {values, y, ''} ->
+          {values, y, ''}
 
-        _, {values, remain} ->
+        _, {values, nil, remain} ->
           {next_one, remain} = decode_next(remain, 0)
-          {:cont, {[sign(next_one) / factor | values], remain}}
+          y = sign(next_one) / factor
+          {values, y, remain}
+
+        _, {values, y, remain} ->
+          {next_one, remain} = decode_next(remain, 0)
+          x = sign(next_one) / factor
+          {px, py} = hd(values)
+          {[{x + px, y + py} | values], nil, remain}
       end)
 
     terms
     |> Enum.reverse()
-    |> Enum.chunk_every(2, 2, :discard)
-    |> Enum.reduce(nil, fn
-      [y, x], nil -> [{x, y}]
-      [y, x], acc -> [Vector.add({x, y}, List.first(acc)) | acc]
-    end)
-    |> Enum.reverse()
+    |> tl()
   end
 
   defp decode_next([head | []], shift), do: {decode_char(head, shift), ''}
