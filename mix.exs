@@ -39,10 +39,10 @@ defmodule Polyline.Mixfile do
       {:geo, "~> 3.0", only: [:dev, :test]},
       {:poison, "~> 5.0", only: [:dev, :test]},
       {:excoveralls, "~> 0.4", only: :test},
-      {:credo, "~> 1.5", only: [:dev], runtime: false},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:benchfella, "~> 0.3", only: :dev},
-      {:stream_data, "~> 0.5", only: :test}
+      {:stream_data, "~> 1.1", only: :test}
     ]
   end
 

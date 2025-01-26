@@ -60,7 +60,7 @@ defmodule Polyline do
   end
 
   defp encode_int(x) do
-    x <<< 1
+    (x <<< 1)
     |> unsign
     |> collect_chars
     |> to_string
@@ -88,8 +88,8 @@ defmodule Polyline do
 
     {terms, _, _} =
       Enum.reduce(chars, {[{0.0, 0.0}], nil, chars}, fn
-        _, {values, y, ''} ->
-          {values, y, ''}
+        _, {values, y, ~c""} ->
+          {values, y, ~c""}
 
         _, {values, nil, remain} ->
           {next_one, remain} = decode_next(remain, 0)
@@ -108,7 +108,7 @@ defmodule Polyline do
     |> tl()
   end
 
-  defp decode_next([head | []], shift), do: {decode_char(head, shift), ''}
+  defp decode_next([head | []], shift), do: {decode_char(head, shift), ~c""}
   defp decode_next([head | tail], shift) when head < 95, do: {decode_char(head, shift), tail}
 
   defp decode_next([head | tail], shift) do
