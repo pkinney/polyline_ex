@@ -13,7 +13,15 @@ defmodule Polyline.Mixfile do
       test_coverage: [tool: ExCoveralls],
       dialyzer: [plt_add_apps: [:poison, :mix]],
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+
+      # Docs
+      name: "Polyline",
+      docs: [
+        main: "Polyline",
+        source_ref: "master",
+        source_url: "https://github.com/pkinney/polyline_ex"
+      ]
     ]
   end
 
@@ -21,7 +29,7 @@ defmodule Polyline.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -40,10 +48,10 @@ defmodule Polyline.Mixfile do
       {:geo, "~> 3.0", only: [:dev, :test]},
       {:poison, "~> 5.0", only: [:dev, :test]},
       {:excoveralls, "~> 0.4", only: :test},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:benchfella, "~> 0.3", only: :dev},
-      {:stream_data, "~> 1.1", only: :test}
+      {:stream_data, "~> 1.1", only: :test},
+      {:credo, "~> 1.6", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.3", only: [:dev], runtime: false}
     ]
   end
 
