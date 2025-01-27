@@ -84,28 +84,28 @@ defmodule Polyline do
 
   def decode(str, precision) do
     factor = :math.pow(10, precision)
-    chars = String.to_charlist(str)
 
-    {terms, _, _} =
-      Enum.reduce(chars, {[{0.0, 0.0}], nil, chars}, fn
-        _, {values, y, ~c""} ->
-          {values, y, ~c""}
-
-        _, {values, nil, remain} ->
-          {next_one, remain} = decode_next(remain, 0)
-          y = sign(next_one) / factor
-          {values, y, remain}
-
-        _, {values, y, remain} ->
-          {next_one, remain} = decode_next(remain, 0)
-          x = sign(next_one) / factor
-          {px, py} = hd(values)
-          {[{x + px, y + py} | values], nil, remain}
-      end)
-
-    terms
+    str
+    |> String.to_charlist()
+    |> decode_list(factor, [{0.0, 0.0}], nil)
     |> Enum.reverse()
     |> tl()
+  end
+
+  defp decode_list(remain, factor, values, y)
+  defp decode_list(~c"", _factor, values, _y), do: values
+
+  defp decode_list(remain, factor, values, nil) do
+    {next_one, remain} = decode_next(remain, 0)
+    y = sign(next_one) / factor
+    decode_list(remain, factor, values, y)
+  end
+
+  defp decode_list(remain, factor, values, y) do
+    {next_one, remain} = decode_next(remain, 0)
+    x = sign(next_one) / factor
+    {px, py} = hd(values)
+    decode_list(remain, factor, [{x + px, y + py} | values], nil)
   end
 
   defp decode_next([head | []], shift), do: {decode_char(head, shift), ~c""}
