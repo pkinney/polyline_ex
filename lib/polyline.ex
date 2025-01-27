@@ -87,25 +87,25 @@ defmodule Polyline do
 
     str
     |> String.to_charlist()
-    |> decode_list(factor, [{0.0, 0.0}], nil)
-    |> Enum.reverse()
+    |> decode_list([{0, 0}], nil)
+    |> Enum.reduce([], fn {x, y}, acc -> [{x / factor, y / factor} | acc] end)
     |> tl()
   end
 
-  defp decode_list(remain, factor, values, y)
-  defp decode_list(~c"", _factor, values, _y), do: values
+  defp decode_list(remain, values, y)
+  defp decode_list(~c"", values, _y), do: values
 
-  defp decode_list(remain, factor, values, nil) do
+  defp decode_list(remain, values, nil) do
     {next_one, remain} = decode_next(remain, 0)
-    y = sign(next_one) / factor
-    decode_list(remain, factor, values, y)
+    y = sign(next_one)
+    decode_list(remain, values, y)
   end
 
-  defp decode_list(remain, factor, values, y) do
+  defp decode_list(remain, values, y) do
     {next_one, remain} = decode_next(remain, 0)
-    x = sign(next_one) / factor
+    x = sign(next_one)
     {px, py} = hd(values)
-    decode_list(remain, factor, [{x + px, y + py} | values], nil)
+    decode_list(remain, [{x + px, y + py} | values], nil)
   end
 
   defp decode_next([head | []], shift), do: {decode_char(head, shift), ~c""}
